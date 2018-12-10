@@ -2,7 +2,6 @@
 
 bool updatable = false;
 
-gpp::Vector3 v3;
 
 Game::Game() : window(VideoMode(800, 600), "OpenGL Cube")
 {
@@ -52,19 +51,48 @@ void Game::initialize()
 	glNewList(index, GL_COMPILE);
 	glBegin(GL_QUADS);
 	{
-		//Front Face
-		glColor3f(0.0f, 0.0f, 1.0f);
-		glVertex3f(v3.getX(), 1.0f, -5.0f);
-		glVertex3f(-1.0f, 1.0f, -5.0f);
-		glVertex3f(-1.0f, -1.0f, -5.0f);
-		glVertex3f(1.0f, -1.0f, -5.0f);
+		//back face
+		for (int i = 0; i < 4; i++)
+		{
+			glColor3f(0.0f, 1.0f, 0.0f);
+			glVertex3f(face1[i].x, face1[i].y, face1[i].z);
+		}
+		//left Face
+		for (int i = 0; i < 4; i++)
+		{
+			glColor3f(1.0f, 0.0f, 0.0f);
+			glVertex3f(face2[i].x, face2[i].y,face2[i].z);
+		}
+		
+		//right Face
 
-		//Back Face
-		glColor3f(0.0f, 1.0f, 0.0f);
-		glVertex3f(1.0f, 1.0f, -15.0f);
-		glVertex3f(-1.0f, 1.0f, -15.0f);
-		glVertex3f(-1.0f, -1.0f, -15.0f);
-		glVertex3f(1.0f, -1.0f, -15.0f);
+		for (int i = 0; i < 4; i++)
+		{
+			glColor3f(0.0f, 1.0f, 1.0f);
+			glVertex3f(face3[i].x, face3[i].y, face3[i].z);
+		}
+
+		//top face
+
+		for (int i = 0; i < 4; i++)
+		{
+			glColor3f(1.0f, 1.0f, 0.0f);
+			glVertex3f(face4[i].x, face4[i].y, face4[i].z);
+		}
+
+		//bottom face
+		for (int i = 0; i < 4; i++)
+		{
+			glColor3f(1.0f, 0.0f, 1.0f);
+			glVertex3f(face5[i].x, face5[i].y, face5[i].z);
+		}
+		
+		//Front Face
+		for (int i = 0; i < 4; i++)
+		{
+			glColor3f(0.0f, 0.0f, 1.0f);
+			glVertex3f(face6[i].x, face6[i].y, face6[i].z);
+		}
 
 		//Complete the faces of the Cube
 	}

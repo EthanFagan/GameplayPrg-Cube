@@ -1,0 +1,19 @@
+﻿  Game.cpp
+c:\users\c00232277\desktop\gameplayprg-cube\muddygames-gameplay-programming-i-lab-07-5bca4e99ec23\sfmlopengl\game.cpp(58): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\c00232277\desktop\gameplayprg-cube\muddygames-gameplay-programming-i-lab-07-5bca4e99ec23\sfmlopengl\game.cpp(64): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\c00232277\desktop\gameplayprg-cube\muddygames-gameplay-programming-i-lab-07-5bca4e99ec23\sfmlopengl\game.cpp(72): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\c00232277\desktop\gameplayprg-cube\muddygames-gameplay-programming-i-lab-07-5bca4e99ec23\sfmlopengl\game.cpp(80): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\c00232277\desktop\gameplayprg-cube\muddygames-gameplay-programming-i-lab-07-5bca4e99ec23\sfmlopengl\game.cpp(87): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+  SFMLOpenGL.vcxproj -> C:\Users\c00232277\Desktop\GameplayPrg-Cube\MuddyGames-gameplay-programming-i-lab-07-5bca4e99ec23\Debug\SFMLOpenGL.exe
+  C:\SFML-2.5.0\bin\openal32.dll
+  C:\SFML-2.5.0\bin\sfml-audio-2.dll
+  C:\SFML-2.5.0\bin\sfml-audio-d-2.dll
+  C:\SFML-2.5.0\bin\sfml-graphics-2.dll
+  C:\SFML-2.5.0\bin\sfml-graphics-d-2.dll
+  C:\SFML-2.5.0\bin\sfml-network-2.dll
+  C:\SFML-2.5.0\bin\sfml-network-d-2.dll
+  C:\SFML-2.5.0\bin\sfml-system-2.dll
+  C:\SFML-2.5.0\bin\sfml-system-d-2.dll
+  C:\SFML-2.5.0\bin\sfml-window-2.dll
+  C:\SFML-2.5.0\bin\sfml-window-d-2.dll
+  11 File(s) copied
