@@ -219,7 +219,7 @@ void Game::draw()
 			}
 		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
 		for (int i = 0; i < 6; i++)
 		{
@@ -230,7 +230,7 @@ void Game::draw()
 			}
 		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
 		for (int i = 0; i < 6; i++)
 		{
@@ -241,13 +241,13 @@ void Game::draw()
 			}
 		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
 	{
 		for (int i = 0; i < 6; i++)
 		{
 			for (int x = 0; x < 4; x++)
 			{
-				faces[i][x] = MyMatrix3::scale(5) * faces[i][x];
+				faces[i][x] = MyMatrix3::scale(0.99) * faces[i][x];
 			}
 		}
 	}
