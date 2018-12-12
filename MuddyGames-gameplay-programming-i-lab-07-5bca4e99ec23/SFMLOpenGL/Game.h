@@ -5,6 +5,7 @@
 #include <gl/GLU.h>
 
 #include <MyVector3.h>
+#include <MyMatrix3.h>
 
 
 using namespace std;
@@ -23,22 +24,20 @@ private:
 	void update();
 	void draw();
 	void unload();
-	MyVector3 face1[4] = { {1.0f, 1.0f, -15.0f}, { -1.0f, 1.0f, -15.0f }, { -1.0f, -1.0f, -15.0f }, { 1.0f, -1.0f, -15.0f } };
-
-	MyVector3 face2[4] = { { -1.0f, -1.0f, -15.0f },{ -1.0f, 1.0f, -15.0f },{ -1.0f, 1.0f, -5.0f },{ -1.0f, -1.0f, -5.0f } };
-
-	MyVector3 face3[4] = { { 1.0f, -1.0f, -5.0f },{ 1.0, 1.0f, -5.0f },{ 1.0f, 1.0f, -15.0f },{ 1.0f, -1.0f, -15.0f} };
-
-	MyVector3 face4[4] = { { 1.0f, 1.0f, -15.0f },{ 1.0f, 1.0f, -5.0f },{ -1.0f, 1.0f, -5.0f },{ -1.0f, 1.0f, -15.0f } };
-
-	MyVector3 face5[4] = { { 1.0f, -1.0f, -5.0f },{ 1.0f, -1.0f, -15.0f },{ -1.0f, -1.0f, -15.0f },{ -1.0f, -1.0f, -5.0f } };
-
-	MyVector3 face6[4] = { { 1.0f, 1.0f, -5.0f },{ -1.0f, 1.0f, -5.0f },{ -1.0f, -1.0f, -5.0f },{ 1.0f, -1.0f, -5.0f } };
+	void setPoints();
+	MyVector3 faces[6][4] =
+	{ { {1.0f, 1.0f, -15.0f}, { -1.0f, 1.0f, -15.0f }, { -1.0f, -1.0f, -15.0f }, { 1.0f, -1.0f, -15.0f }},// face1
+	{ { -1.0f, -1.0f, -15.0f },{ -1.0f, 1.0f, -15.0f },{ -1.0f, 1.0f, -5.0f },{ -1.0f, -1.0f, -5.0f } },// face2
+	{ { 1.0f, -1.0f, -5.0f },{ 1.0, 1.0f, -5.0f },{ 1.0f, 1.0f, -15.0f },{ 1.0f, -1.0f, -15.0f } },//face3
+	{ { 1.0f, 1.0f, -15.0f },{ 1.0f, 1.0f, -5.0f },{ -1.0f, 1.0f, -5.0f },{ -1.0f, 1.0f, -15.0f } },//face4
+	{ { 1.0f, -1.0f, -5.0f },{ 1.0f, -1.0f, -15.0f },{ -1.0f, -1.0f, -15.0f },{ -1.0f, -1.0f, -5.0f } },//face5
+	{ { 1.0f, 1.0f, -5.0f },{ -1.0f, 1.0f, -5.0f },{ -1.0f, -1.0f, -5.0f },{ 1.0f, -1.0f, -5.0f } } };//face6
+	
 
 
 	GLuint index;
 	Clock clock;
 	Time elapsed;
 
-	float rotationAngle = 0.0f;
+	float rotationAngle = 0.005f;
 };

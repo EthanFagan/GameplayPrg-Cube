@@ -3,8 +3,8 @@
 
 
 /// <summary>
-/// Francis Carroll
-///C00226918
+/// Ethan Fagan
+///c00233277
 
 #include <SFML/Graphics.hpp>
 #include <string.h>

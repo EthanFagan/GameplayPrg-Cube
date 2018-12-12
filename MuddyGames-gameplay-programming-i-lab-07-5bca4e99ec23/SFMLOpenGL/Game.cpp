@@ -52,48 +52,38 @@ void Game::initialize()
 	glBegin(GL_QUADS);
 	{
 		//back face
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < 6; i++)
 		{
-			glColor3f(0.0f, 1.0f, 0.0f);
-			glVertex3f(face1[i].x, face1[i].y, face1[i].z);
+			for (int x = 0; x < 4; x++)
+			{
+				if (i == 0)
+				{
+					glColor3f(0.0f, 1.0f, 0.0f);
+				}
+				else if (i == 1)
+				{
+					glColor3f(1.0f, 0.0f, 0.0f);
+				}
+				else if (i == 2)
+				{
+					glColor3f(0.0f, 1.0f, 1.0f);
+				}
+				else if (i == 3)
+				{
+					glColor3f(1.0f, 1.0f, 0.0f);
+				}
+				else if (i == 4)
+				{
+					glColor3f(1.0f, 0.0f, 1.0f);
+				}
+				else if (i == 5)
+				{
+					glColor3f(0.0f, 0.0f, 1.0f);
+				}
+				glVertex3f(faces[i][x].x, faces[i][x].y, faces[i][x].z);
+			}
+			
 		}
-		//left Face
-		for (int i = 0; i < 4; i++)
-		{
-			glColor3f(1.0f, 0.0f, 0.0f);
-			glVertex3f(face2[i].x, face2[i].y,face2[i].z);
-		}
-		
-		//right Face
-
-		for (int i = 0; i < 4; i++)
-		{
-			glColor3f(0.0f, 1.0f, 1.0f);
-			glVertex3f(face3[i].x, face3[i].y, face3[i].z);
-		}
-
-		//top face
-
-		for (int i = 0; i < 4; i++)
-		{
-			glColor3f(1.0f, 1.0f, 0.0f);
-			glVertex3f(face4[i].x, face4[i].y, face4[i].z);
-		}
-
-		//bottom face
-		for (int i = 0; i < 4; i++)
-		{
-			glColor3f(1.0f, 0.0f, 1.0f);
-			glVertex3f(face5[i].x, face5[i].y, face5[i].z);
-		}
-		
-		//Front Face
-		for (int i = 0; i < 4; i++)
-		{
-			glColor3f(0.0f, 0.0f, 1.0f);
-			glVertex3f(face6[i].x, face6[i].y, face6[i].z);
-		}
-
 		//Complete the faces of the Cube
 	}
 	glEnd();
@@ -103,28 +93,46 @@ void Game::initialize()
 void Game::update()
 {
 	elapsed = clock.getElapsedTime();
-
-	if (elapsed.asSeconds() >= 1.0f)
+	glNewList(index, GL_COMPILE);
+	glBegin(GL_QUADS);
 	{
-		clock.restart();
-
-		if (!updatable)
+		//back face
+		for (int i = 0; i < 6; i++)
 		{
-			updatable = true;
-		}
-		else
-			updatable = false;
-	}
+			for (int x = 0; x < 4; x++)
+			{
+				if (i == 0)
+				{
+					glColor3f(0.0f, 1.0f, 0.0f);
+				}
+				else if (i == 1)
+				{
+					glColor3f(1.0f, 0.0f, 0.0f);
+				}
+				else if (i == 2)
+				{
+					glColor3f(0.0f, 1.0f, 1.0f);
+				}
+				else if (i == 3)
+				{
+					glColor3f(1.0f, 1.0f, 0.0f);
+				}
+				else if (i == 4)
+				{
+					glColor3f(1.0f, 0.0f, 1.0f);
+				}
+				else if (i == 5)
+				{
+					glColor3f(0.0f, 0.0f, 1.0f);
+				}
+				glVertex3f(faces[i][x].x, faces[i][x].y, faces[i][x].z);
+			}
 
-	if (updatable)
-	{
-		rotationAngle += 0.005f;
-
-		if (rotationAngle > 360.0f)
-		{
-			rotationAngle -= 360.0f;
 		}
+		//Complete the faces of the Cube
 	}
+	glEnd();
+	glEndList();
 	
 	cout << "Update up" << endl;
 }
@@ -137,8 +145,112 @@ void Game::draw()
 
 	cout << "Drawing Cube " << endl;
 	glLoadIdentity();
-	glRotatef(rotationAngle, 0, 0, 1); // Rotates the camera on Y Axis
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			for (int x = 0; x < 4; x++)
+			{
+				faces[i][x] = MyMatrix3::rotationZ(rotationAngle) * faces[i][x];
+			}
+		}
 
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			for (int x = 0; x < 4; x++)
+			{
+				faces[i][x] = MyMatrix3::rotationY(rotationAngle) * faces[i][x];
+			}
+		}
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			for (int x = 0; x < 4; x++)
+			{
+				faces[i][x] = MyMatrix3::rotationY(-rotationAngle) * faces[i][x];
+			}
+		}
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			for (int x = 0; x < 4; x++)
+			{
+				faces[i][x] = MyMatrix3::rotationX(rotationAngle) * faces[i][x];
+			}
+		}
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			for (int x = 0; x < 4; x++)
+			{
+				faces[i][x] = MyMatrix3::rotationX(-rotationAngle) * faces[i][x];
+			}
+		}
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			for (int x = 0; x < 4; x++)
+			{
+				MyVector3 translator{0,0.05,0};
+				faces[i][x] = translator + faces[i][x];
+			}
+		}
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			for (int x = 0; x < 4; x++)
+			{
+				MyVector3 translator{ 0,-0.05,0 };
+				faces[i][x] = translator + faces[i][x];
+			}
+		}
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			for (int x = 0; x < 4; x++)
+			{
+				MyVector3 translator{ 0.05,0,0 };
+				faces[i][x] = translator + faces[i][x];
+			}
+		}
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			for (int x = 0; x < 4; x++)
+			{
+				MyVector3 translator{-0.05,0,0 };
+				faces[i][x] = translator + faces[i][x];
+			}
+		}
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			for (int x = 0; x < 4; x++)
+			{
+				faces[i][x] = MyMatrix3::scale(5) * faces[i][x];
+			}
+		}
+	}
 	glCallList(1);
 
 	window.display();
@@ -148,5 +260,9 @@ void Game::draw()
 void Game::unload()
 {
 	cout << "Cleaning up" << endl;
+}
+
+void Game::setPoints()
+{
 }
 
