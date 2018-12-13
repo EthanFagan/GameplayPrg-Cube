@@ -156,7 +156,7 @@ void Game::draw()
 		}
 
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
 		for (int i = 0; i < 6; i++)
 		{
@@ -166,7 +166,7 @@ void Game::draw()
 			}
 		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
 		for (int i = 0; i < 6; i++)
 		{
@@ -176,7 +176,7 @@ void Game::draw()
 			}
 		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
 		for (int i = 0; i < 6; i++)
 		{
@@ -186,7 +186,7 @@ void Game::draw()
 			}
 		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
 		for (int i = 0; i < 6; i++)
 		{
@@ -197,7 +197,7 @@ void Game::draw()
 		}
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
 		for (int i = 0; i < 6; i++)
 		{
@@ -208,7 +208,7 @@ void Game::draw()
 			}
 		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
 		for (int i = 0; i < 6; i++)
 		{
@@ -219,7 +219,7 @@ void Game::draw()
 			}
 		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
 		for (int i = 0; i < 6; i++)
 		{
@@ -230,7 +230,7 @@ void Game::draw()
 			}
 		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
 		for (int i = 0; i < 6; i++)
 		{
@@ -241,13 +241,23 @@ void Game::draw()
 			}
 		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
 	{
 		for (int i = 0; i < 6; i++)
 		{
 			for (int x = 0; x < 4; x++)
 			{
 				faces[i][x] = MyMatrix3::scale(0.99) * faces[i][x];
+			}
+		}
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			for (int x = 0; x < 4; x++)
+			{
+				faces[i][x] = MyMatrix3::scale(1.01) * faces[i][x];
 			}
 		}
 	}
